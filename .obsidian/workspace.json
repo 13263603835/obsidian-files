@@ -11,32 +11,17 @@
             "id": "8af7d038f5392df7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "设计模式/【设计模式】责任链模式.md",
-                "mode": "source",
-                "source": false
+                "aFile": "kafka/【Kafka】管理Kafka.md",
+                "bFile": "kafka/【Kafka】管理Kafka.md",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "【设计模式】责任链模式"
-            }
-          },
-          {
-            "id": "33d940059f6263e4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "其他/obsidian git插件配置.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "obsidian git插件配置"
+              "icon": "diff",
+              "title": "Diff: 【Kafka】管理Kafka"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -165,14 +150,23 @@
               "icon": "lucide-list",
               "title": "obsidian git插件配置 的大纲"
             }
+          },
+          {
+            "id": "e066e6551ef9e02e",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 341.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,11 +179,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "33d940059f6263e4",
+  "active": "8af7d038f5392df7",
   "lastOpenFiles": [
+    "kafka/【Kafka】管理Kafka.md",
+    "设计模式/【设计模式】责任链模式.md",
+    "其他/obsidian git插件配置.md",
     "其他/Pasted image 20250327142216.png",
     "其他/Pasted image 20250327142014.png",
-    "其他/obsidian git插件配置.md",
     "其他/Pasted image 20250327142507.png",
     "其他/Pasted image 20250327142226.png",
     "其他/Pasted image 20250327142035.png",
@@ -198,7 +194,6 @@
     "设计模式/Pasted image 20250326162754.png",
     "八股文",
     "设计模式/【设计模式】策略模式.md",
-    "设计模式/【设计模式】责任链模式.md",
     "设计模式/Pasted image 20250327133212.png",
     "kafka/【Kafka】Kafka消费者.md",
     "设计模式",

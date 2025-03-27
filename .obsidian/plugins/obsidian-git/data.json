@@ -25,7 +25,7 @@
   "showBranchStatusBar": true,
   "setLastSaveToLastCommit": false,
   "submoduleRecurseCheckout": false,
-  "gitDir": "D:/Ksoftware/Git/bin",
+  "gitDir": "",
   "showFileMenu": true,
   "authorInHistoryView": "hide",
   "dateInHistoryView": false,
