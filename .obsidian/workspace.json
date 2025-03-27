@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a4a27df89275916f",
+        "id": "7c99cd7e8ed950b0",
         "type": "tabs",
         "children": [
           {
-            "id": "8af7d038f5392df7",
+            "id": "943c880220b5187b",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "kafka/【Kafka】管理Kafka.md",
-                "bFile": "kafka/【Kafka】管理Kafka.md",
-                "aRef": ""
+                "file": "kafka/【Kafka】管理Kafka.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: 【Kafka】管理Kafka"
+              "icon": "lucide-file",
+              "title": "【Kafka】管理Kafka"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "其他/obsidian git插件配置.md",
+                "file": "kafka/【Kafka】管理Kafka.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "obsidian git插件配置 的大纲"
+              "title": "【Kafka】管理Kafka 的大纲"
             }
           },
           {
@@ -179,7 +179,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "8af7d038f5392df7",
+  "active": "e066e6551ef9e02e",
   "lastOpenFiles": [
     "kafka/【Kafka】管理Kafka.md",
     "设计模式/【设计模式】责任链模式.md",
