@@ -113,3 +113,43 @@ kafka-configs.sh --bootstrap-server localhost:9092 --alter --entity-type topics 
 ```
 
 # 生产和消费
+
+## 控制台生产者
+```
+kafka-console-producer.sh --topic ${topic} --broker-list localhost:9092
+kafka-console-producer.sh --topic ${topic} --bootstrap-server localhost:9092
+```
+
+## 控制台消费者
+
+```
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ${topic}
+#回放所有数据
+kafka-console-consumer.sh --bootstrap-server localhost:9091 --topic ${topic} --from-beginning
+# 匹配主题
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --whitelist 'my.*'
+```
+
+### 配置参数
+> 通过使用 `--consumer.config <config-file>`执行消费者配置文件
+> 通过使用`--consumer-property <key>=<value>`，key是参数名 value是参数值
+
+- `--formatter`：执行消息解码的类名 
+	- `kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic ${topic} --formatter kafka.tools.ChecksumMessageFormatter`
+- `--from-beginning`：指定从旧偏移量开始读取，如果不指定，从最开始读取
+- `--max-messages`：指定退出前最多读取多少条消息
+- `--parrention`：读取指定分区的数据
+- `--offset`：
+	- 整数：从指定位置读取
+	- earliest：从起始位置读取
+	- latest：从最近位置读取
+- `--skip-message-on-error`：出现错误就跳过消息
+
+### 读取偏移量主题
+>想要了解某个消费者群组是否在提交偏移量，或者提交的频率，可以通过控制台消费者读取`__consumer_offsets`这个topic来查看
+
+```
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --from-beginning --max-messages 1 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormater" --consumer-property exclude.internal.topics = false
+```
+
