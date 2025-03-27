@@ -153,3 +153,6 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --whitelist 'my.*'
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --from-beginning --max-messages 1 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormater" --consumer-property exclude.internal.topics = false
 ```
 
+
+
+
