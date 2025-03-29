@@ -127,4 +127,10 @@ Srping使用三级缓存来解决该问题
 - `TransactionDefinition.PROPAGATION_REQUIRED`：如果存在事务就加入，如果不存在，创建一个新事物
 - `TransactionDefinition.PROPAGATION_REQUIRES_NEW`：如果当前存在一个事务，将事务挂起，重新创建一个新的事务
 - `TransactionDefinition.PROPAGATION_NESTED`：如果当前存在事务，则创建一个事务当作当前事务嵌套事务，如果没有事务，创建一个新事物
-- `TransactionDefinition.PROPAGATION_MANDATORY`：如果存在事务jia'ru
+- `TransactionDefinition.PROPAGATION_MANDATORY`：如果存在事务加入事务，如果没有事务，抛出异常
+- `TransactionDefinition.PROPAGATION_SUPPORTS`：如果存在事务，将当前事务挂起，以非事务方式进行执行
+- `TransactionDefinition.PROPAGATION_NOT_SUPPORTED`：以非事务的方式运行，如果存在事务，进行挂起
+- `TransactionDefinition.PROPAGATION_NEVER`：以非事务的方式运行，存在事务，抛出异常
+
+### @Transactional注解
+- 默认只有遇到runtimeexception或者error时才会回滚事务，
