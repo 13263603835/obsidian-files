@@ -62,4 +62,43 @@ Spring-jdbc
 ## Spring AOP
 面向切面编程，将与业务无关的，缺为所有业务模块共同调用的逻辑封装起来，减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
 
-基于dong
+基于动态代理来实现的
+- 接口的代理，使用JDK Proxy
+- class的代理使用CGLIB
+
+**名词**
+- 目标target：需要被代理的类
+- 代理 proxy：需要被代理的类生成的类
+- 连接点 joinpoint：目标对象所属类中，定义的所有方法均为连接点
+- 切入点 pointcut：被拦截的连接点
+- 通知 adivce：增强的代码逻辑，就是拦截后要进行的动作
+- 切面：切入点+通知
+- 织入：将通知应用到目标对象，生成代理类的过程
+
+
+## Spring AOP 和AspectJ AOP的区别
+
+| 特性   | Spring AOP | AspectJ AOP |
+| ---- | ---------- | ----------- |
+| 增强方式 | 运行时增强      | 编译时、类加载时    |
+| 切入方式 | 方法         | 方法、字段、构造器   |
+| 性能   | 切面较多时，性能低  | 性能搞         |
+| 复杂性  | 简单易用       | 功能强大，相对复杂   |
+
+## Spring AOP的通知类型
+- before：方法执行前
+- after：方法执行后
+- after returning：返回之前
+- after throwing：抛异常之后
+- around：所有场景都会调用
+## 多个切面如何控制顺序
+- 使用`@Order`注解，值越小，优先级越高
+- 实现`Ordered`接口，重写`getOrder`方法
+
+## Spring MVC
+将业务逻辑、数据、显示进行分离
+
+## Spring MVC核心组件
+- `DispatcherServlet`：核心的中央处理器，负责接收请求、分发、并给予客户端响应
+- `HandlerMapping`：处理器映射，根据URL匹配相关处理的`Handler`，
+- `HandlerAdapter`：处理器适配，根据`Han
