@@ -55,4 +55,11 @@ Spring-jdbc
 - **bean属性的赋值**：根据@autowired、@value等注解给相关属性赋值
 - **bean的初始化**：
 	- 如果bean实现了一些以`Aware`结尾的接口，会调用相关的方法进行操作
-	- 调用`beanpo
+	- 调用`beanpostprocessor`的`postProcessBeforeInitialization()`方法进行处理
+	- 调用`beanpostprocessor`的`postProcessAfterInitialization()`方法进行处理
+- **销毁bean**
+	- 如果实现了`disposableBean`接口执行`destory()` 
+## Spring AOP
+面向切面编程，将与业务无关的，缺为所有业务模块共同调用的逻辑封装起来，减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
+
+基于dong
