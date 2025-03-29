@@ -37,3 +37,22 @@ Spring-jdbc
 ## Bean的作用域
 - singleton：默认单例
 - prototype：每次获取时都会创建一个新的实例
+- request：仅web应用可用，每个http请求产生一个新的bean，生命周期是这个http请求
+- session：仅web应用可用，每个新session的http请求会产生一个新bean，生命周期是这个session
+- application：仅web可用，每个应用启动时创建一个bean，生命周期是当前应用启动的时间
+- websocket：仅web可用，每个websocket绘画产生一个新的bean
+
+## Bean是线程安全的吗
+- singleton作用域下，单例模式的bean对象应该是无状态的，否则多线程情况下会存在资源竞争问题
+- prototype作用域下，每次获取都会创建新的，不存在线程安全问题
+**确保单例情况下bean的线程安全的方法**
+- 避免使用可变成员变量
+- 使用threadlocal
+- 使用同步机制
+
+## bean的生命周期
+- **创建bean的实例**：bean容器根据配置信息，利用反射来创建bean的实例，此时bean中的属性都是空值
+- **bean属性的赋值**：根据@autowired、@value等注解给相关属性赋值
+- **bean的初始化**：
+	- 如果bean实现了一些以`Aware`结尾的接口，会调用相关的方法进行操作
+	- 调用`beanpo
