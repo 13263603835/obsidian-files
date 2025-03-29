@@ -101,4 +101,30 @@ Spring-jdbc
 ## Spring MVC核心组件
 - `DispatcherServlet`：核心的中央处理器，负责接收请求、分发、并给予客户端响应
 - `HandlerMapping`：处理器映射，根据URL匹配相关处理的`Handler`，
-- `HandlerAdapter`：处理器适配，根据`Han
+- `HandlerAdapter`：处理器适配，根据`HandlerMapping`找到的`Handler`适配 执行 `Handler` 
+- `Handler`：请求的处理器，处理实际请求
+- `ViewResolver`：视图解析器，根据返回的视图数据，解析并渲染真正的视图。
+## Spring的循环依赖
+循环依赖是指bean的对象互相持有对方的引用。
+Srping使用三级缓存来解决该问题
+- 一级缓存：存放已经完成初始化的bean
+- 二级缓存：存放过度的bean，没有初始化完全的bean放在该缓存中，完成后从这里删除
+- 三级缓存：存放ObjectFactory，可以生成原始bean的对象或者代理对象。三级缓存只对单例生效
+**创建bean的流程**
+- 先从一级缓存中获取，存在就直接返回
+- 不存在从二级缓存中获取
+- 如果还没有获取到，从三级缓存中获取，如果获取成功放入二级缓存，并删除三级缓存中数据
+
+
+## Spring事务
+### 事务的管理方式
+- 编程式事务：在代码中手动管理事务，
+- 声明式事务：通过AOP实现的，使用@Transactional注解来进行事务的管理
+### 事务的传播机制
+>为了解决业务层方法之间的互相调用问题
+
+**类型**
+- `TransactionDefinition.PROPAGATION_REQUIRED`：如果存在事务就加入，如果不存在，创建一个新事物
+- `TransactionDefinition.PROPAGATION_REQUIRES_NEW`：如果当前存在一个事务，将事务挂起，重新创建一个新的事务
+- `TransactionDefinition.PROPAGATION_NESTED`：如果当前存在事务，则创建一个事务当作当前事务嵌套事务，如果没有事务，创建一个新事物
+- `TransactionDefinition.PROPAGATION_MANDATORY`：如果存在事务jia'ru
