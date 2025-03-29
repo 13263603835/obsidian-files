@@ -172,6 +172,7 @@ kafka-leader-election.sh --bootstrap-server localhost:9092 --election-type PREFE
 假设现在有一个包含4个broker的集群，新添加了2个broker，希望将两个topic迁移到 broker5和broker6中
 - 创建包含topic清单的JSON文件
 ```
+topics.json
 {
 	"topics":[
 		{
@@ -186,5 +187,16 @@ kafka-leader-election.sh --bootstrap-server localhost:9092 --election-type PREFE
 ```
 - 执行命令
 ```
+kafka-reassign-partitions.sh  --bootstrap-server localhost:9092 --topics-to0move-json-file topics.json --broker-list 5,6 --generate
+```
 
+### 移除某个borker
+- 可以利用 `Cruise Control`提供的broker的降级功能来处理，可以安全的将broker的领导全转移出去
+
+## 转储日志
+查看日志片段中的数据
+
+```
+kafka-dump-log.sh --files /tmp/kafka-logs/my_topic-0/00000000000000000000.log
+kafka-dump-log.sh --files /tmp/kafka-logs/my_topic-0/00000000000000000000.log --print-data-log   
 ```

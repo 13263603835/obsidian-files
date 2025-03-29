@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kafka/【Kafka】管理Kafka.md",
+                "file": "八股文/Spring面试题.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "【Kafka】管理Kafka"
+              "title": "Spring面试题"
             }
           }
         ]
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "kafka/【Kafka】管理Kafka.md",
+                "file": "八股文/Spring面试题.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "【Kafka】管理Kafka 的大纲"
+              "title": "Spring面试题 的大纲"
             }
           },
           {
@@ -179,9 +179,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "370e109c1f6ed4a4",
+  "active": "943c880220b5187b",
   "lastOpenFiles": [
     "kafka/【Kafka】管理Kafka.md",
+    "八股文/Spring面试题.md",
     "设计模式/【设计模式】责任链模式.md",
     "其他/obsidian git插件配置.md",
     "其他/Pasted image 20250327142216.png",
