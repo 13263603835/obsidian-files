@@ -18,5 +18,10 @@ Springboot在启动时会根据读取classpath下所有的`spring.factories`文�
 - spring boot devtools
 
 ## springboot使用事务
-- 添加`enabletransactionmanagement`开启事务，就可以使用 transactional 注解了
-## sprinboot
+- 启动类中添加`enabletransactionmanagement`开启事务，就可以使用 transactional 注解了
+## springboot中使用异步
+- 启动类中添加`@enableasync`注解，公共方法中使用 `@async`注解即可实现异步方法
+
+## 加载配置的方式
+- `@PropertySource`：用于显示指定加载配置文件，必须配置@configuration
+- ``
