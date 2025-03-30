@@ -50,3 +50,6 @@ Springboot在启动时会根据读取classpath下所有的`spring.factories`文�
 
 ## spring profiles
 - 可以利用`profiles`根据配置文件中设置 dev\test\prod等参数来注册bean，明确是生产环境还是测试环境
+
+## 多数据源拆分思路
+- 在properties中添加两个数据源，创建不同数据源的mapper包，使用`@ConfigurationProperties`读取`properties`中的配置，使用`MapperScan`注册对应的mapper包中
