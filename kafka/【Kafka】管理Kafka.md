@@ -153,6 +153,50 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092 --whitelist 'my.*'
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --from-beginning --max-messages 1 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormater" --consumer-property exclude.internal.topics = false
 ```
 
+# 分区管理
+- 重新选举首领
+- 将分区分配给指定的broker
+## 首领选举
+```
+#给所有主题启动一个首选首领选举
+kafka-leader-election.sh --bootstrap-server localhost:9092 --election-type PREFERRED --all-topic-partitions
+```
+- `--topic`：指定具体topic名称
+- `--partition`：指定具体的分区
 
+## 修改分区副本
+- `broker`的负载分布不均衡，自动首领选举无法解决
+- `broker`离线，造成分区分布不均匀
+- 新加了broker，想要快速分区
 
+假设现在有一个包含4个broker的集群，新添加了2个broker，希望将两个topic迁移到 broker5和broker6中
+- 创建包含topic清单的JSON文件
+```
+topics.json
+{
+	"topics":[
+		{
+			"topic":"foo1"
+		},
+		{
+			"topic":"foo2"
+		}
+	],
+	"version":1
+}
+```
+- 执行命令
+```
+kafka-reassign-partitions.sh  --bootstrap-server localhost:9092 --topics-to0move-json-file topics.json --broker-list 5,6 --generate
+```
 
+### 移除某个borker
+- 可以利用 `Cruise Control`提供的broker的降级功能来处理，可以安全的将broker的领导全转移出去
+
+## 转储日志
+查看日志片段中的数据
+
+```
+kafka-dump-log.sh --files /tmp/kafka-logs/my_topic-0/00000000000000000000.log
+kafka-dump-log.sh --files /tmp/kafka-logs/my_topic-0/00000000000000000000.log --print-data-log   
+```
